@@ -7,3 +7,6 @@ export const LOGIN_ERROR = 'LOGIN_ERROR'
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGOUT = 'LOGOUT'
 export const STOP_LOGIN_PENDING = 'STOP_LOGIN_PENDING'
+
+export const SAVE_USER_ALBUMS = 'SAVE_USER_ALBUMS'
+export const SAVE_USER_POSTS = 'SAVE_USER_POSTS'
