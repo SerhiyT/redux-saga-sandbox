@@ -12,10 +12,22 @@ function App() {
   const handleClick = () => {
     dispatch({
       type: USER_POST_FETCH_REQUEST,
-      payload: {
-        userId: 1,
-      }
+      payload: { userId: 3, actionId: 1 }
     })
+    dispatch({
+      type: USER_POST_FETCH_REQUEST,
+      payload: { userId: 3, actionId: 2 }
+    })
+    dispatch({
+      type: USER_POST_FETCH_REQUEST,
+      payload: { userId: 3, actionId: 3 }
+    })
+    setTimeout(() => {
+      dispatch({
+        type: USER_POST_FETCH_REQUEST,
+        payload: { userId: 3, actionId: 4 }
+      })
+    }, 1000)
   }
   // LOGIN / LOGOUT
   const handleLoginClick = () => {

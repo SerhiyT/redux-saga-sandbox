@@ -11,6 +11,7 @@ import { rootSaga } from './store/sagas'
 import { userPostsRequestedWatcherSaga } from './store/sagas-action-channel';
 import { loginFlowSaga } from './store/sagas-login';
 import { forkSaga } from './store/sagas-fork';
+import { takeSaga } from './store/sagas-takes';
 
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -27,7 +28,8 @@ export const store = createStore(
 // *run request one by one (after finish first, run next and etc.) Action Channel
 // sagaMiddleware.run(userPostsRequestedWatcherSaga)
 // sagaMiddleware.run(loginFlowSaga)
-sagaMiddleware.run(forkSaga)
+// sagaMiddleware.run(forkSaga)
+sagaMiddleware.run(takeSaga)
 
 
 ReactDOM.render(
