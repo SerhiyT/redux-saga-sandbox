@@ -13,6 +13,8 @@ import { loginFlowSaga } from './store/sagas-login';
 import { forkSaga } from './store/sagas-fork';
 import { takeSaga } from './store/sagas-takes';
 import { eventChannelSaga } from './store/saga-event-channel';
+import { channelSaga } from './store/saga-channel';
+import { handleFilesUploading } from './store/saga-channel-upload';
 
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -31,7 +33,11 @@ export const store = createStore(
 // sagaMiddleware.run(loginFlowSaga)
 // sagaMiddleware.run(forkSaga)
 // sagaMiddleware.run(takeSaga)
-sagaMiddleware.run(eventChannelSaga)
+// sagaMiddleware.run(eventChannelSaga)
+// sagaMiddleware.run(channelSaga)
+sagaMiddleware.run(handleFilesUploading)
+
+
 
 
 ReactDOM.render(

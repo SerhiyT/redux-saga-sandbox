@@ -1,11 +1,13 @@
-import { SAVE_USER_ALBUMS, SAVE_USER_POSTS, USER_POST_FETCH_SUCCEEDED } from "../actions"
+import { FILES_UPLOADING_PROGRESS, SAVE_USER_ALBUMS, SAVE_USER_POSTS, USER_POST_FETCH_SUCCEEDED } from "../actions"
 
 
-export const reducer = (state={
+
+const initialState = {
   posts: null,
-}, 
-action
-) => {
+  albums: null,
+  filesUploadingProgress: 0
+}
+export const reducer = (state=initialState, action) => {
   switch (action.type) {
     case USER_POST_FETCH_SUCCEEDED:
       const posts = action.payload.data
@@ -27,6 +29,14 @@ action
         return {
           ...state,
           posts,
+        }
+      }
+
+      case FILES_UPLOADING_PROGRESS: {
+        const filesUploadingProgress = action.payload.data
+        return {
+          ...state,
+          filesUploadingProgress,
         }
       }
   

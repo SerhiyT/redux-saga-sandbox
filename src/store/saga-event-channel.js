@@ -1,3 +1,5 @@
+// *usually through it they solve the problem of communication via websocket.
+// *eventChannel - an external event source, most often a web socket;
 import { END, eventChannel } from "@redux-saga/core";
 import { call, take } from "@redux-saga/core/effects";
 import { createEventProvider } from "../api/event-provider";
