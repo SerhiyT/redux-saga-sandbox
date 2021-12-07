@@ -1,6 +1,15 @@
-export const USER_POST_FETCH_REQUEST = 'USER_POST_FETCH_REQUEST'
+export const USER_POSTS_FETCH_REQUESTED = 'USER_POSTS_FETCH_REQUESTED'
 export const USER_POST_FETCH_SUCCEEDED = 'USER_POST_FETCH_SUCCEEDED'
 export const USER_POST_FETCH_FAILED= 'USER_POST_FETCH_FAILED'
+export const requestUserPosts = ({ userId, dispatchId }) => {
+  console.log(
+    `Received action: USER_POSTS_FETCH_REQUESTED; dispatch id: ${dispatchId}`
+  )
+  return {
+    type: USER_POSTS_FETCH_REQUESTED,
+    payload: { userId, id: dispatchId },
+  }
+}
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_ERROR = 'LOGIN_ERROR'

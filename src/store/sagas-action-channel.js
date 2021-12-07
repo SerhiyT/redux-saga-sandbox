@@ -1,7 +1,7 @@
 // *run request one by one (after finish first, run next and etc.) Action Channel
 // *Most often used when it is necessary to react to events from the redux store.
 import { getUserPosts } from "../api/posts";
-import { USER_POST_FETCH_FAILED, USER_POST_FETCH_REQUEST, USER_POST_FETCH_SUCCEEDED } from "./actions";
+import { USER_POST_FETCH_FAILED, USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from "./actions";
 import { put, call, take, actionChannel } from 'redux-saga/effects'
 import { buffers } from "@redux-saga/core";
 
@@ -24,10 +24,10 @@ function* fetchUserPosts(action) {
 }
 
 export function* userPostsRequestedWatcherSaga() {
-  const requestChannel = yield actionChannel(USER_POST_FETCH_REQUEST)
+  const requestChannel = yield actionChannel(USER_POSTS_FETCH_REQUESTED)
 
   // *run only 1 request (first income)
-  // const requestChannelWithoutBuffers = yield actionChannel(USER_POST_FETCH_REQUEST, buffers.none)
+  // const requestChannelWithoutBuffers = yield actionChannel(USER_POSTS_FETCH_REQUESTED, buffers.none)
 
   while(true) {
     const action = yield take(requestChannel)

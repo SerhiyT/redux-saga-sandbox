@@ -1,6 +1,6 @@
 // *run all request at the same time - put/takeEvery
 import { getUserPosts } from "../api/posts";
-import { USER_POST_FETCH_FAILED, USER_POST_FETCH_REQUEST, USER_POST_FETCH_SUCCEEDED } from "./actions";
+import { USER_POST_FETCH_FAILED, USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from "./actions";
 import { all, put, call, takeEvery } from 'redux-saga/effects'
 
 function* fetchUserPosts(action) {
@@ -22,7 +22,7 @@ function* fetchUserPosts(action) {
 }
 
 export function* userPostsRequestedWatcherSaga() {
-  yield takeEvery(USER_POST_FETCH_REQUEST, fetchUserPosts)
+  yield takeEvery(USER_POSTS_FETCH_REQUESTED, fetchUserPosts)
 }
 
 // eslint-disable-next-line require-yield

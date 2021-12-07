@@ -1,6 +1,6 @@
 import { Button, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { FILES_UPLOADING_START, LOGIN_REQUEST, LOGOUT, USER_POST_FETCH_REQUEST } from './store/actions';
+import { FILES_UPLOADING_START, LOGIN_REQUEST, LOGOUT, requestUserPosts, USER_POSTS_FETCH_REQUESTED } from './store/actions';
 
 function App() {
   const dispatch = useDispatch()
@@ -9,28 +9,34 @@ function App() {
   const error = useSelector((state) => state.user.error)
   const filesUploadingProgress = useSelector((state) => state.global.filesUploadingProgress)
   
+  const handleGetPosts = () => {
+    try{
+      for (let dispatchId = 1; dispatchId <= 4; dispatchId++) {
+        dispatch(
+          requestUserPosts({
+            userId: 3,
+            dispatchId
+          })
+        )
+      }
+    } catch(err) {
+      console.log('%cqqq: ERROR', 'color: red;', err.message);
+    }
+    
 
+    // dispatch({
+    //   type: USER_POSTS_FETCH_REQUESTED,
+    //   payload: { userId: 3, actionId: 1 }
+    // })
 
-  const handleClick = () => {
-    dispatch({
-      type: USER_POST_FETCH_REQUEST,
-      payload: { userId: 3, actionId: 1 }
-    })
-    dispatch({
-      type: USER_POST_FETCH_REQUEST,
-      payload: { userId: 3, actionId: 2 }
-    })
-    dispatch({
-      type: USER_POST_FETCH_REQUEST,
-      payload: { userId: 3, actionId: 3 }
-    })
-    setTimeout(() => {
-      dispatch({
-        type: USER_POST_FETCH_REQUEST,
-        payload: { userId: 3, actionId: 4 }
-      })
-    }, 1000)
+    // setTimeout(() => {
+    //   dispatch({
+    //     type: USER_POSTS_FETCH_REQUESTED,
+    //     payload: { userId: 3, actionId: 4 }
+    //   })
+    // }, 1000)
   }
+
   // LOGIN / LOGOUT
   const handleLogin = () => {
     dispatch({
@@ -50,7 +56,7 @@ function App() {
 
   return (
     <div className="App">
-     <Button onClick={handleClick}> Get posts</Button>
+     <Button onClick={handleGetPosts}> Get posts</Button>
   
      <Row className="app__login-container p-3">
        <Col className="col-2"> 
