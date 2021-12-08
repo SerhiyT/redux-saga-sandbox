@@ -16,6 +16,7 @@ import { eventChannelSaga } from './store/saga-event-channel';
 import { channelSaga } from './store/saga-channel';
 import { handleFilesUploading } from './store/saga-channel-upload';
 import { userPostFetchWatcherWithBuffer } from './store/sagas-action-channel-with-buffer';
+import { sagaThrottleDebounce } from './store/sagas-throttle-debounce';
 
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -37,7 +38,9 @@ export const store = createStore(
 // sagaMiddleware.run(eventChannelSaga)
 // sagaMiddleware.run(channelSaga)
 // sagaMiddleware.run(handleFilesUploading)
-sagaMiddleware.run(userPostFetchWatcherWithBuffer)
+// sagaMiddleware.run(userPostFetchWatcherWithBuffer)
+sagaMiddleware.run(sagaThrottleDebounce)
+
 
 
 

@@ -1,6 +1,6 @@
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { FILES_UPLOADING_START, LOGIN_REQUEST, LOGOUT, requestUserPosts, USER_POSTS_FETCH_REQUESTED } from './store/actions';
+import { CHANGE_USERNAME, FILES_UPLOADING_START, LOGIN_REQUEST, LOGOUT, requestUserPosts, USER_POSTS_FETCH_REQUESTED } from './store/actions';
 
 function App() {
   const dispatch = useDispatch()
@@ -23,7 +23,6 @@ function App() {
       console.log('%cqqq: ERROR', 'color: red;', err.message);
     }
     
-
     // dispatch({
     //   type: USER_POSTS_FETCH_REQUESTED,
     //   payload: { userId: 3, actionId: 1 }
@@ -53,6 +52,14 @@ function App() {
   const handleUpload = () => {
     dispatch({ type: FILES_UPLOADING_START })
   }
+  const handleUsernameChange = (event) => {
+    dispatch({
+      type: CHANGE_USERNAME,
+      payload: {
+        username: event.target.value,
+      },
+    })
+  }
 
   return (
     <div className="App">
@@ -73,6 +80,16 @@ function App() {
         <Col className="col-2"> 
           <Button onClick={handleUpload}>Upload</Button>
           {<p> Uploading progress {filesUploadingProgress}% </p>}
+        </Col>
+      </Row>
+      <Row>
+        <Col className="col-4"> 
+          <Form.Control
+            size="md"
+            type="text"
+            placeholder="Username"
+            onChange={handleUsernameChange}
+          />
         </Col>
       </Row>
     </div>

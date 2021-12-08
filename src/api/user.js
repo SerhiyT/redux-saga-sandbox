@@ -19,7 +19,7 @@ export const login = (username, password) => {
   })
 }
 
-export const saveFriendlyName = (username) => {
+export const saveName = (username) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve()
