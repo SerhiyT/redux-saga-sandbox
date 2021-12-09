@@ -1,6 +1,13 @@
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { CHANGE_USERNAME, FILES_UPLOADING_START, LOGIN_REQUEST, LOGOUT, requestUserPosts, USER_POSTS_FETCH_REQUESTED } from './store/actions';
+import { 
+  CHANGE_USERNAME,
+  FILES_UPLOADING_START,
+  LOGIN_REQUEST,
+  LOGOUT, 
+  requestUserPosts,
+  USER_POSTS_FETCH_REQUESTED
+} from './store/actions';
 
 function App() {
   const dispatch = useDispatch()
@@ -10,23 +17,23 @@ function App() {
   const filesUploadingProgress = useSelector((state) => state.global.filesUploadingProgress)
   
   const handleGetPosts = () => {
-    try{
-      for (let dispatchId = 1; dispatchId <= 4; dispatchId++) {
-        dispatch(
-          requestUserPosts({
-            userId: 3,
-            dispatchId
-          })
-        )
-      }
-    } catch(err) {
-      console.log('%cqqq: ERROR', 'color: red;', err.message);
-    }
+    // try{
+    //   for (let dispatchId = 1; dispatchId <= 4; dispatchId++) {
+    //     dispatch(
+    //       requestUserPosts({
+    //         userId: 3,
+    //         dispatchId
+    //       })
+    //     )
+    //   }
+    // } catch(err) {
+    //   console.log('%cqqq: ERROR', 'color: red;', err.message);
+    // }
     
-    // dispatch({
-    //   type: USER_POSTS_FETCH_REQUESTED,
-    //   payload: { userId: 3, actionId: 1 }
-    // })
+    dispatch({
+      type: USER_POSTS_FETCH_REQUESTED,
+      payload: { userId: 3, actionId: 1 }
+    })
 
     // setTimeout(() => {
     //   dispatch({

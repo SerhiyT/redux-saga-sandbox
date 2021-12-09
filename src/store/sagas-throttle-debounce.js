@@ -8,6 +8,6 @@ function* changeUsername(action) {
 }
 
 export function* sagaThrottleDebounce() {
-  // yield throttle(500, CHANGE_USERNAME, changeUsername)
-  yield debounce(500, CHANGE_USERNAME, changeUsername)
-}
+  yield throttle(500, CHANGE_USERNAME, changeUsername)
+  // yield debounce(500, CHANGE_USERNAME, changeUsername)
+} 
