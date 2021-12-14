@@ -1,7 +1,7 @@
 import { buffers } from '@redux-saga/core';
 import { actionChannel, call, put, take } from '@redux-saga/core/effects';
-import { getUserPosts } from '../api/posts';
-import { USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from './actions';
+import { getUserPosts } from '../../api/posts';
+import { USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from '../actions';
 
 function* fetchUserPosts(action) {
   console.log(`Processing action: ${action.type}; dispatchId: ${action.payload.id}`);

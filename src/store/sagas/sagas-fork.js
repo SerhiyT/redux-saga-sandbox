@@ -1,7 +1,7 @@
 import { call, fork, put, spawn } from '@redux-saga/core/effects';
-import { getUserAlbums } from '../api/albums';
-import { getUserPosts } from '../api/posts';
-import { SAVE_USER_ALBUMS, SAVE_USER_POSTS } from './actions';
+import { getUserAlbums } from '../../api/albums';
+import { getUserPosts } from '../../api/posts';
+import { SAVE_USER_ALBUMS, SAVE_USER_POSTS } from '../actions';
 
 function* fetchAlbums(userId) {
   const data = yield call(getUserAlbums, userId);

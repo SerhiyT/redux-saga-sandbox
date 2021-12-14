@@ -1,7 +1,7 @@
 import { channel } from '@redux-saga/core';
 import { call, fork, put, take } from '@redux-saga/core/effects';
-import { uploadFile } from '../api/mock-file-uploader';
-import { FILES_UPLOADING_PROGRESS, FILES_UPLOADING_START } from './actions';
+import { uploadFile } from '../../api/mock-file-uploader';
+import { FILES_UPLOADING_PROGRESS, FILES_UPLOADING_START } from '../actions';
 
 const handleProgressChange = (fileUploadingChannel, progressData) => {
   fileUploadingChannel.put({

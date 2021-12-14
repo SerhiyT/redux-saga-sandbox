@@ -1,6 +1,6 @@
 import { call, cancel, cancelled, fork, put, take } from '@redux-saga/core/effects';
-import { clearToken, login, saveToken } from '../api/user';
-import { LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, STOP_LOGIN_PENDING } from './actions';
+import { clearToken, login, saveToken } from '../../api/user';
+import { LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, STOP_LOGIN_PENDING } from '../actions';
 
 function* authorize(username, password) {
   try {

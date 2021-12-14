@@ -2,7 +2,7 @@
 // *eventChannel - an external event source, most often a web socket;
 import { END, eventChannel } from '@redux-saga/core';
 import { call, take } from '@redux-saga/core/effects';
-import { createEventProvider } from '../api/event-provider';
+import { createEventProvider } from '../../api/event-provider';
 
 const createEventProviderChannel = (eventProvider) => {
   return eventChannel((emit) => {

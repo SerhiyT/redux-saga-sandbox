@@ -1,6 +1,6 @@
 import { call, cancel, fork, put, take, takeEvery, takeLatest, takeLeading } from '@redux-saga/core/effects';
-import { getUserPosts } from '../api/posts';
-import { USER_POST_FETCH_FAILED, USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from './actions';
+import { getUserPosts } from '../../api/posts';
+import { USER_POST_FETCH_FAILED, USER_POSTS_FETCH_REQUESTED, USER_POST_FETCH_SUCCEEDED } from '../actions';
 
 function* fetchUserPosts(action) {
   try {
