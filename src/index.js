@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { rootReducer } from './store/reducers/rootReducer';
 import createSagaMiddleware from '@redux-saga/core';
-import { rootSaga } from './store/sagas'
+import { rootSaga } from './store/sagas';
 import { userPostsRequestedWatcherSaga } from './store/sagas-action-channel';
 import { loginFlowSaga } from './store/sagas-login';
 import { forkSaga } from './store/sagas-fork';
@@ -19,24 +19,20 @@ import { userPostFetchWatcherWithBuffer } from './store/sagas-action-channel-wit
 import { sagaThrottleDebounce } from './store/sagas-throttle-debounce';
 import * as postAPI from './api/posts';
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware({
   context: {
     postAPI,
-  }
-})
+  },
+});
 
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
-);
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, sagaMiddleware)));
 
 // *run all request at the same time - put/takeEvery
 // sagaMiddleware.run(rootSaga)
 
 // *run request one by one (after finish first, run next and etc.) Action Channel
-sagaMiddleware.run(userPostsRequestedWatcherSaga)
+sagaMiddleware.run(userPostsRequestedWatcherSaga);
 // sagaMiddleware.run(loginFlowSaga)
 // sagaMiddleware.run(forkSaga)
 // sagaMiddleware.run(takeSaga)
@@ -52,11 +48,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-
-
-
-
-
-

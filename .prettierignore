@@ -1,0 +1,40 @@
+### List the content of .gitignore
+
+### Node template
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# ide
+.idea/
+
+# vscode
+.vscode/
+.vs/
+
+.DS_Store
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+
+## for anyone that uses yarn - we only support npm
+yarn.lock
+yarn-error.log
+
+#misc
+.eslintcache
+/.nyc_output
+/documentation
+
+### List content of .eslintignore if present

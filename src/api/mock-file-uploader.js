@@ -1,11 +1,11 @@
 export const uploadFile = ({ url, files, onProgress }) => {
   console.log(`Uploading ${files.length} file(s) to ${url} ...`);
-  let progress = 0
+  let progress = 0;
   const interval = setInterval(() => {
-    progress++
-    onProgress(progress)
+    progress++;
+    onProgress(progress);
     if (progress === 100) {
-      clearInterval(interval)
+      clearInterval(interval);
     }
-  }, 30)
-}
+  }, 30);
+};
