@@ -18,23 +18,23 @@ function App() {
   const filesUploadingProgress = useSelector((state) => state.global.filesUploadingProgress);
 
   const handleGetPosts = () => {
-    // try{
-    //   for (let dispatchId = 1; dispatchId <= 4; dispatchId++) {
-    //     dispatch(
-    //       requestUserPosts({
-    //         userId: 3,
-    //         dispatchId
-    //       })
-    //     )
-    //   }
-    // } catch(err) {
-    //   console.log('%cqqq: ERROR', 'color: red;', err.message);
-    // }
+    try {
+      for (let dispatchId = 1; dispatchId <= 4; dispatchId++) {
+        dispatch(
+          requestUserPosts({
+            userId: 3,
+            dispatchId,
+          })
+        );
+      }
+    } catch (err) {
+      console.log('%cqqq: ERROR', 'color: red;', err.message);
+    }
 
-    dispatch({
-      type: USER_POSTS_FETCH_REQUESTED,
-      payload: { userId: 3, actionId: 1 },
-    });
+    // dispatch({
+    //   type: USER_POSTS_FETCH_REQUESTED,
+    //   payload: { userId: 3, actionId: 1 },
+    // });
 
     // setTimeout(() => {
     //   dispatch({

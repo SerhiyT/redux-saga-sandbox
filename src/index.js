@@ -18,6 +18,7 @@ import { handleFilesUploading } from './store/sagas/saga-channel-upload';
 import { userPostFetchWatcherWithBuffer } from './store/sagas/sagas-action-channel-with-buffer';
 import { sagaThrottleDebounce } from './store/sagas/sagas-throttle-debounce';
 import * as postAPI from './api/posts';
+import { userPostFetchCallApplyWatcherSaga } from './store/sagas/sagas-call-apply';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware({
@@ -32,7 +33,7 @@ export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(t
 // sagaMiddleware.run(rootSaga)
 
 // *run request one by one (after finish first, run next and etc.) Action Channel
-sagaMiddleware.run(userPostsRequestedWatcherSaga);
+// sagaMiddleware.run(userPostsRequestedWatcherSaga);
 // sagaMiddleware.run(loginFlowSaga)
 // sagaMiddleware.run(forkSaga)
 // sagaMiddleware.run(takeSaga)
@@ -41,6 +42,7 @@ sagaMiddleware.run(userPostsRequestedWatcherSaga);
 // sagaMiddleware.run(handleFilesUploading)
 // sagaMiddleware.run(userPostFetchWatcherWithBuffer)
 // sagaMiddleware.run(sagaThrottleDebounce)
+sagaMiddleware.run(userPostFetchCallApplyWatcherSaga);
 
 ReactDOM.render(
   <React.StrictMode>
