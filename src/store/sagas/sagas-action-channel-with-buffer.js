@@ -18,7 +18,7 @@ export function* userPostFetchWatcherWithBuffer() {
   const limit = 2;
   const initialSize = 2;
   const requestChannel = yield actionChannel(
-    USER_POSTS_FETCH_REQUESTED,
+    USER_POSTS_FETCH_REQUESTED
     // buffers.none()  //* no buffering, new messages will be lost if there are no pending takers
     // buffers.fixed(limit) //* new messages will be buffered up to limit. Overflow will raise an Error. Default limit = 10.
     // buffers.expanding(initialSize) //* like fixed but Overflow will cause the buffer to expand dynamically.
